@@ -1,6 +1,6 @@
-import BaseballGame from "./BaseBallGame.js";
-import ComputerNumber from "./ComputerNumber.js";
-import InputValidation from "./InputValidation.js";
+import BaseballGame from "./model/BaseBallGame.js";
+import ComputerNumber from "./model/ComputerNumber.js";
+import InputValidation from "./view/InputValidation.js";
 
 const baseBallGame = new BaseballGame();
 const computerNumber = new ComputerNumber();

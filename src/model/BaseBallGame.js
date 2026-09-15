@@ -35,10 +35,10 @@ export default class BaseballGame {
     let ballCount = 0;
 
     for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (i !== j && computerInputNumbers[i] === userInputNumbers[j]) {
+      if (computerInputNumbers.includes(userInputNumbers[i])&&
+          computerInputNumbers[i]!==userInputNumbers[i]
+        ) {
           ballCount++;
-        }
       }
     }
     return ballCount;

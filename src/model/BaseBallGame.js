@@ -20,13 +20,9 @@ export default class BaseballGame {
   }
 
   getStrike(computerInputNumbers, userInputNumbers) {
-    let strikeCount = 0;
-
-    for (let i = 0; i < 3; i++) {
-      if (computerInputNumbers[i] === userInputNumbers[i]) {
-        strikeCount++;
-      }
-    }
+    let strikeCount = userInputNumbers.filter(
+      (number, index) => computerInputNumbers[index] === number
+    ).length;
 
     return strikeCount;
   }
@@ -34,13 +30,14 @@ export default class BaseballGame {
   getBall(computerInputNumbers, userInputNumbers) {
     let ballCount = 0;
 
-    for (let i = 0; i < 3; i++) {
-      if (computerInputNumbers.includes(userInputNumbers[i])&&
-          computerInputNumbers[i]!==userInputNumbers[i]
-        ) {
-          ballCount++;
+    userInputNumbers.forEach((number, index) => {
+      if (computerInputNumbers.includes(number) &&
+        computerInputNumbers[index] !== number
+      ) {
+        ballCount++;
       }
-    }
+
+    });
     return ballCount;
   }
 }

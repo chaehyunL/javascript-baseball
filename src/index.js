@@ -1,12 +1,14 @@
 import BaseballGame from "./model/BaseBallGame.js";
 import ComputerNumber from "./model/ComputerNumber.js";
 import InputValidation from "./view/InputValidation.js";
+import OutputView from "./view/OutputView.js";
 
 const baseBallGame = new BaseballGame();
 const computerNumber = new ComputerNumber();
 const inputValidation = new InputValidation();
+const outputView= new OutputView(); 
 
-const answerNumbers = computerNumber.getNumber();
+const answerNumbers = computerNumber.getRandomNumbers();
 
 const userInput = document.querySelector("#user-input");
 const result = document.querySelector("#result");
@@ -23,7 +25,7 @@ form.addEventListener("submit", (event) => {
         result.textContent = gameResult;
     }
     else {
-        window.alert(["잘못된 값을 입력하였음."]);
+        outputView.printResult(userInput.value);
     }
 });
 

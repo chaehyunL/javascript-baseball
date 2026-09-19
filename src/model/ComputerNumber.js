@@ -1,5 +1,5 @@
 export default class ComputerNumber {
-    getNumber() {
+    getRandomNumbers() {
         const numbers = [];
         const NUMBER_LENGTH = 3;
         while (numbers.length < NUMBER_LENGTH) {

@@ -1,12 +1,11 @@
 import BaseballGame from "./model/BaseBallGame.js";
 import ComputerNumber from "./model/ComputerNumber.js";
-import InputValidation from "./view/InputValidation.js";
+import isValidBaseballNumber from "./utils/isValidBaseballNumber.js";
 import OutputView from "./view/OutputView.js";
 
 const baseBallGame = new BaseballGame();
 const computerNumber = new ComputerNumber();
-const inputValidation = new InputValidation();
-const outputView= new OutputView(); 
+const outputView = new OutputView();
 
 const answerNumbers = computerNumber.getRandomNumbers();
 
@@ -16,7 +15,7 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    if (inputValidation.isValid(userInput.value)) {
+    if (isValidBaseballNumber(userInput.value)) {
         const userInputNumbers = userInput.value
             .split("").map(Number);
 

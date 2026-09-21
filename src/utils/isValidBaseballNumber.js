@@ -1,5 +1,6 @@
+import { NUMBER_LENGTH } from "../constants/Baseballconstants.js";
+
 const isValidBaseballNumber = (userInput) => {
-    const NUMBER_LENGTH = 3;
     if (userInput.length !== NUMBER_LENGTH) {
         return false;
     }

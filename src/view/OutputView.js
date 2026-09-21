@@ -1,5 +1,10 @@
 export default class OutputView {
-    printResult(userInput) {
+    printResult(gameResult) {
+        const result = document.querySelector("#result");
+        result.textContent = gameResult;
+    }
+
+    printError(userInput) {
         const NUMBER_LENGTH = 3;
         if (userInput.length !== NUMBER_LENGTH) {
             window.alert("숫자 길이가 3이여야 합니다.");

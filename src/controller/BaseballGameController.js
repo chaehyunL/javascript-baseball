@@ -1,7 +1,7 @@
 import BaseballGame from "../model/BaseBallGame.js";
 import ComputerNumber from "../model/ComputerNumber.js";
 import OutputView from "../view/OutputView.js";
-import isValidBaseballNumber from "../utils/isValidBaseballNumber.js";
+import isValidBaseballNumber from "../model/isValidBaseballNumber.js";
 
 export default class BaseballGameController {
 

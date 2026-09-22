@@ -15,7 +15,7 @@ export default class BaseballGameController {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
-            if (isValidBaseballNumber(userInput.value)) {
+            if (isValidBaseballNumber(userInput.value).isValid) {
                 const userInputNumbers = userInput.value
                     .split("")
                     .map(Number);
@@ -26,7 +26,7 @@ export default class BaseballGameController {
                 );
                 outputView.printResult(gameResult);
             } else {
-                outputView.printError(userInput.value);
+                outputView.printError(isValidBaseballNumber(userInput.value).reason);
             }
         });
     }

@@ -4,19 +4,32 @@ export default class BaseballGame {
     const strikeCount = this.getStrike(computerInputNumbers, userInputNumbers);
     const ballCount = this.getBall(computerInputNumbers, userInputNumbers)
 
-    if (strikeCount === 0 && ballCount === 0) {
-      return "낫싱";
+    if(strikeCount===3){
+      return {
+        isAnswer:true,
+        message:"정답을 맞추셨습니다"};
+    }
+    if (strikeCount ===  0 && ballCount === 0) {
+      return {
+        isAnswer:false,
+        message:"낫싱"};
     }
 
     if (strikeCount === 0) {
-      return `${ballCount}볼`;
+      return {
+        isAnswer:false,
+        message:`${ballCount}볼`};
     }
 
     if (ballCount === 0) {
-      return `${strikeCount}스트라이크`;
+      return {
+        isAnswer:false,
+        message:`${strikeCount}스트라이크`};
     }
 
-    return `${ballCount}볼 ${strikeCount}스트라이크`;
+    return {
+      isAnswer:false,
+      message:`${ballCount}볼 ${strikeCount}스트라이크`};
   }
 
   getStrike(computerInputNumbers, userInputNumbers) {

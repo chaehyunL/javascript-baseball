@@ -3,6 +3,8 @@ import ComputerNumber from "../model/ComputerNumber.js";
 import OutputView from "../view/OutputView.js";
 import isValidBaseballNumber from "../model/isValidBaseballNumber.js";
 
+const restartButton = document.querySelector("#game-restart-button");
+
 export default class BaseballGameController {
 
     run(userInput, form) {
@@ -12,6 +14,8 @@ export default class BaseballGameController {
 
         const answerNumbers = computerNumber.getRandomNumbers();
 
+        result.textContent = "";
+        restartButton.style.display = "none";
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
@@ -24,7 +28,11 @@ export default class BaseballGameController {
                     answerNumbers,
                     userInputNumbers
                 );
-                outputView.printResult(gameResult);
+                outputView.printResult(gameResult.message);
+                if (gameResult.isAnswer) {
+                    restartButton.style.display="";
+                    return;
+                }
             } else {
                 outputView.printError(isValidBaseballNumber(userInput.value).reason);
             }
